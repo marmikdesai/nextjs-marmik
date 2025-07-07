@@ -1,3 +1,4 @@
+import { FinanceDataTypes } from "hooks/financeDataType";
 import { useFinanceData } from "hooks/useFinanceData";
 import { Fragment, useId } from "react";
 
@@ -18,7 +19,7 @@ export default function Home() {
       <div>
         <div>news_results node</div>
         <div>
-          {financeData.news_results.map((result: any)=> {
+          {financeData.news_results.map((result: FinanceDataTypes["news_results"])=> {
             return (
               <Fragment key={key}>
                 <div>{result.snippet}</div>
@@ -28,6 +29,32 @@ export default function Home() {
             )
           })}
 
+        </div>
+      </div>
+      <div>
+        <div>financials</div>
+        <div>
+          {
+            financeData.financials.map((financial: FinanceDataTypes["financials"]) => {
+              return (
+                <Fragment key={key}>
+                  <div>{financial.title}</div>
+                  <div>{financial.results[0].date}</div>
+                  <div>{financial.results[0].period_type}</div>
+                  {financial.results[0].table.map((row) => {
+                    return (
+                      <Fragment key={key}>
+                        <div>{row.change}</div>
+                        <div>{row.description}</div>
+                        <div>{row.title}</div>
+                        <div>{row.value}</div>
+                      </Fragment>
+                    )
+                  })}
+                </Fragment>
+              )
+            })
+          }
         </div>
       </div>
     </>
