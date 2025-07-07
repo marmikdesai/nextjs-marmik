@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FinanceDataTypes } from "hooks/financeDataType";
 import { useFinanceData } from "hooks/useFinanceData";
 import { Fragment, useId } from "react";
@@ -5,7 +6,6 @@ import { Fragment, useId } from "react";
 export default function Home() {
   const financeData = useFinanceData('LICI:NSE');
   const key = useId();
-
   return (
     <>
       <div>
@@ -51,6 +51,32 @@ export default function Home() {
                       </Fragment>
                     )
                   })}
+                </Fragment>
+              )
+            })
+          }
+        </div>
+      </div>
+      <div>
+        <div>knowledge_graph</div>
+        <div>
+          {
+            financeData.knowledge_graph.about.map((aboutData: FinanceDataTypes["knowledge_graph"]["about"])=> {
+              return (
+                <Fragment key={key}>
+                  <div>{aboutData.description.link}</div>
+                  <div>{aboutData.description.link_text}</div>
+                  <div>{aboutData.description.snippet}</div>
+                  <>
+                    {aboutData.info.map((infoData: any)=> {
+                      return (
+                        <Fragment key={key}>
+                          <div>{infoData.label}</div>
+                          <div>{infoData.value}</div>
+                        </Fragment>
+                      )
+                    })}
+                  </>
                 </Fragment>
               )
             })
