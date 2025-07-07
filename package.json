@@ -9,11 +9,15 @@
     "lint": "next lint",
     "tsc": "tsc --noEmit"
   },
+  "type": "module",
   "dependencies": {
+    "@tanstack/react-query": "^5.81.5",
     "next": "15.3.5",
+    "openapi-fetch": "^0.14.0",
     "prettier": "^3.6.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "serpapi": "^2.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
