@@ -27,5 +27,19 @@ export type FinanceDataTypes = {
         value: string;
       }[]
     }[]
+  },
+  knowledge_graph: {
+    about: {
+      title: string;
+      description: {
+      link: string;
+      link_text: string;
+      snippet: string;
+    },
+    info: [{
+      label: string;
+      value: string;
+      }]
+    }
   }
 }

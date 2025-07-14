@@ -6,7 +6,7 @@ export const useFinanceData = (query: string) => {
   const config = getRuntimeConfig();
   const response = getJson({
     engine: "google_finance",
-    api_key: config.serpapikey,
+//    api_key: config.serpapikey,
     q: query,
   });
 
