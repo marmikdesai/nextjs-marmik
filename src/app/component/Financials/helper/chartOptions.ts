@@ -52,8 +52,8 @@ export const chartOptions = {
       },
       ticks: {
         color: "#343A40",
-        callback: function (value: string) {
-          return formatLargeNumber(value);
+        callback: function (tickValue: string | number) {
+          return formatLargeNumber(String(tickValue));
         },
       },
     },
